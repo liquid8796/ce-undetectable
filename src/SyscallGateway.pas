@@ -6,7 +6,7 @@ interface
 
 uses
   {$ifdef windows}
-  windows, jwawindows, sysutils, classes;
+  jwawindows, windows, sysutils, classes;
   {$endif}
 
 function SyscallReadProcessMemory(hProcess: THandle; lpBaseAddress: Pointer; lpBuffer: Pointer; nSize: SIZE_T; var lpNumberOfBytesRead: SIZE_T): BOOL; stdcall;
@@ -75,6 +75,7 @@ type
     NumberOfLinenumbers: WORD;
     Characteristics: DWORD;
   end;
+  PSectionHeader = ^TSectionHeader;
 
 function RvaToFileOffset(BaseAddr: PByte; RVA: DWORD): DWORD;
 var
@@ -105,8 +106,8 @@ var
   ExportDir: TImageExportDirectory;
   ExportDirRVA: DWORD;
   ExportDirFOA: DWORD;
-  Names: PPDWORD;
-  Functions: PPDWORD;
+  Names: PDWORD;
+  Functions: PDWORD;
   Ordinals: PUSHORT;
   FuncRVA: DWORD;
   FuncFOA: DWORD;
@@ -328,10 +329,12 @@ begin
     // rdx already = lpAddress (correct)
     mov r8, 0              // MemoryBasicInformation
     mov r9, bufPtr         // pointer to output buffer
-    // push 6th param: ReturnLength (optional, use NULL)
-    push 0
+    // push 6th param: ReturnLength
+    lea rax, [ReturnLength]
+    push rax
     // 5th param: dwLength
-    push dwLength
+    mov eax, dwLength
+    push rax
     sub rsp, $20           // shadow space for x64 syscall
     movzx eax, word [g_SyscallNtQueryVirtualMemory]
     syscall

@@ -37,14 +37,14 @@ const
   ACEACDrivers: array[0..2] of string = ('EasyAntiCheat.sys', 'EasyAntiCheat_EOS.sys', 'EasyAntiCheat');
   ACBEDrivers: array[0..2] of string = ('BEDaisy.sys', 'BEDaisy', 'be_driver.sys');
   ACXIGNDrivers: array[0..2] of string = ('x3.xem', 'xnl.sys', 'xhunter1.sys');
-  ACRicochetDrivers: array[0..2] of string = ('randgrid.sys', 'shmvcb.sys');
+  ACRicochetDrivers: array[0..1] of string = ('randgrid.sys', 'shmvcb.sys');
 
   ACEACProcesses: array[0..2] of string = ('EasyAntiCheat.exe', 'EasyAntiCheat_EOS.exe', 'eac_launcher.exe');
   ACBEProcesses: array[0..2] of string = ('BEService.exe', 'BEService_x64.exe', 'be_client.exe');
   ACVanguardProcesses: array[0..2] of string = ('vgc.exe', 'vgtray.exe', 'vgk.exe');
   ACXIGNProcesses: array[0..2] of string = ('x3.xem', 'XIGNCode3', 'xcoronahost.xem');
   ACFaceitProcesses: array[0..2] of string = ('faceit.exe', 'faceitclient.exe', 'faceit_acs.exe');
-  ACESEAProcesses: array[0..2] of string = ('eseaclient.exe', 'eslwire.exe');
+  ACESEAProcesses: array[0..1] of string = ('eseaclient.exe', 'eslwire.exe');
 
 function DetectAntiCheat: TAntiCheatInfo;
 function GetAntiCheatName(AType: TAntiCheatType): string;

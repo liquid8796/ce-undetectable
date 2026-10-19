@@ -212,7 +212,7 @@ begin
   StrPCopy(PChar(@inBuf[0]), moduleNameW);
 
   if DeviceIoControl(FDriver.hDevice, IOCTL_WINNOTIFY_INFO,
-    @inBuf, SizeOf(inBuf), @outBuf, SizeOf(outBuf), bytesReturned, nil) then
+    @inBuf, SizeOf(inBuf), @outBuf, SizeOf(outBuf), @bytesReturned, nil) then
   begin
     Result := PQWORD(@outBuf[$10])^;
   end;
@@ -237,7 +237,7 @@ begin
   PQWORD(@inBuf[8])^ := 0;
 
   if DeviceIoControl(FDriver.hDevice, IOCTL_WINNOTIFY_READ,
-    @inBuf, SizeOf(inBuf), @outBuf, SizeOf(outBuf), bytesReturned, nil) then
+    @inBuf, SizeOf(inBuf), @outBuf, SizeOf(outBuf), @bytesReturned, nil) then
   begin
     Result := PQWORD(@outBuf[$20])^;
   end;
@@ -264,7 +264,7 @@ begin
   PQWORD(@inBuf[16])^ := KernelAddr;
 
   DeviceIoControl(FDriver.hDevice, IOCTL_WINNOTIFY_WRITE,
-    @inBuf, SizeOf(inBuf), nil, 0, bytesReturned, nil);
+    @inBuf, SizeOf(inBuf), nil, 0, @bytesReturned, nil);
 end;
 
 // IOCTL 0x222050 — Physical memory read with DirBase (CR3-based page table walk)
@@ -284,7 +284,7 @@ begin
   // Output buffer pointer goes at +20
 
   Result := DeviceIoControl(FDriver.hDevice, IOCTL_WINNOTIFY_PHYSREAD,
-    @inBuf, SizeOf(inBuf), Buffer, Size, bytesReturned, nil);
+    @inBuf, SizeOf(inBuf), Buffer, Size, @bytesReturned, nil);
 end;
 
 // IOCTL 0x222054 — Physical memory write with DirBase
@@ -309,7 +309,7 @@ begin
   Move(Buffer^, pBuf[20], Size);
 
   Result := DeviceIoControl(FDriver.hDevice, IOCTL_WINNOTIFY_PHYSWRITE,
-    pBuf, totalSize, nil, 0, bytesReturned, nil);
+    pBuf, totalSize, nil, 0, @bytesReturned, nil);
 
   FreeMem(pBuf);
 end;
@@ -359,7 +359,7 @@ function TPhysMemOps.FindProcessEPROCESS(PID: DWORD): QWORD;
 var
   sysProc, current: QWORD;
   flink: QWORD;
-  pid: QWORD;
+  procPid: QWORD;
   maxIter: Integer;
 begin
   Result := 0;
@@ -376,8 +376,8 @@ begin
     // FLINK points to the next EPROCESS.ActiveProcessLinks, subtract offset to get EPROCESS
     current := flink - EPROCESS_ActiveProcessLinks;
 
-    pid := IOCTL_ReadQWORD(current + EPROCESS_UniqueProcessId);
-    if pid = PID then
+    procPid := IOCTL_ReadQWORD(current + EPROCESS_UniqueProcessId);
+    if procPid = PID then
     begin
       Result := current;
       Exit;

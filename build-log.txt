@@ -1,0 +1,484 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Loading personal and system profiles took 2177ms.
+PS D:\Project\tools\ce-undetectable> .\Build.ps1 -Clean -LazarusPath "E:\lazarus"
+========================================
+ CE Undetectable - Build System
+========================================
+Root:     D:\Project\tools\ce-undetectable
+Source:   D:\Project\tools\ce-undetectable\src
+Target:   D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine
+
+[...] Cloning upstream Cheat Engine...
+Cloning into 'D:\Project\tools\ce-undetectable\cheat-engine'...
+remote: Enumerating objects: 2518, done.
+remote: Counting objects: 100% (2518/2518), done.
+remote: Compressing objects: 100% (2235/2235), done.
+remote: Total 2518 (delta 342), reused 1356 (delta 169), pack-reused 0 (from 0)
+Receiving objects: 100% (2518/2518), 13.34 MiB | 12.78 MiB/s, done.
+Resolving deltas: 100% (342/342), done.
+[OK] Upstream cloned
+[OK] Lazarus: E:\lazarus\lazbuild.exe
+[...] Cleaning...
+[OK] Cleaned
+[...] Applying patches...
+  Copied: SyscallGateway.pas
+  Copied: AntiCheatDetector.pas
+  Copied: PhysicalMemory.pas
+  Copied: KernelBridge.pas
+  Patched: cheatengine.lpi
+  Patched: cheatengine.lpr
+  Patched: NewKernelHandler.pas
+[OK] Patches applied
+[...] Randomizing build identifiers...
+[OK] Build #18021
+[...] Building Release 64-Bit with lazbuild...
+  This may take a while (first build is slow)...
+[ERROR] Build failed (exit code: 2)
+  Free Pascal Compiler version 3.2.2 [2024/02/26] for x86_64
+  Copyright (c) 1993-2021 by Florian Klaempfl and others
+  (1002) Target OS: Win64 for x64
+  (3104) Compiling cheatengine.lpr
+  (3104) Compiling first.pas
+  (3104) Compiling betterdllsearchpath.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newradiobutton.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newcheckbox.pas
+  (3104) Compiling .\betterControls\bettercontrolcolorset.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newbutton.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newlistview.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newedit.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newmainmenu.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newform.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newlistbox.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newprogressbar.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newmemo.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newcombobox.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newgroupbox.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newspeedbutton.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newtreeview.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newheadercontrol.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newscrollbar.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newscrollbox.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newsynedit.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newpagecontrol.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newtabcontrol.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newstatusbar.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newchecklistbox.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newcheckgroup.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newcolorbox.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newdirectoryedit.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newhintwindow.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newtogglebox.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling .\betterControls\newvirtualstringtree.pas
+  (3104) Compiling .\betterControls\bettercontrols.pas
+  (3104) Compiling MainUnit2.pas
+  (3104) Compiling formsettingsunit.pas
+  (3104) Compiling CEFuncProc.pas
+  (3104) Compiling Assemblerunit.pas
+  (3104) Compiling ProcessHandlerUnit.pas
+  (3104) Compiling NewKernelHandler.pas
+  (3104) Compiling .\dbk32\DBK32functions.pas
+  (3104) Compiling .\dbk32\multicpuexecution.pas
+  (3104) Compiling globals.pas
+  (3104) Compiling commontypedefs.pas
+  (3104) Compiling .\dbk32\vmxfunctions.pas
+  (3104) Compiling CEFuncProc.pas
+  (3104) Compiling Assemblerunit.pas
+  (3104) Compiling ProcessHandlerUnit.pas
+  (3104) Compiling NewKernelHandler.pas
+  (3104) Compiling .\dbk32\debug.pas
+  (3104) Compiling plugin.pas
+  (3104) Compiling CEFuncProc.pas
+  (3104) Compiling Assemblerunit.pas
+  (3104) Compiling ProcessHandlerUnit.pas
+  (3104) Compiling LuaHandler.pas
+  (3104) Compiling .\lua\lua.pas
+  (3104) Compiling .\lua\lualib.pas
+  (3104) Compiling .\lua\lauxlib.pas
+  (3104) Compiling SyncObjs2.pas
+  (3104) Compiling networkInterfaceApi.pas
+  (3104) Compiling networkInterface.pas
+  (3104) Compiling networkConfig.pas
+  (3104) Compiling networkInterfaceApi.pas
+  (3104) Compiling networkInterface.pas
+  (3104) Compiling CEFuncProc.pas
+  (3104) Compiling Assemblerunit.pas
+  (3104) Compiling vextypedef.pas
+  (3104) Compiling CEFuncProc.pas
+  (3104) Compiling lastdisassembledata.pas
+  (3104) Compiling hypermode.pas
+  (3104) Compiling disassembler.pas
+  (3104) Compiling byteinterpreter.pas
+  (3104) Compiling symbolhandler.pas
+  (3104) Compiling symbollisthandler.pas
+  (3104) Compiling cvconst.pas
+  (3104) Compiling symbolhandlerstructs.pas
+  (3104) Compiling symbolhandler.pas
+  (3104) Compiling PEInfoFunctions.pas
+  (3104) Compiling FileMapping.pas
+  (1010) Writing Resource String Table file: FileMapping.rsj
+  (3104) Compiling PEInfounit.pas
+  (3104) Compiling symbolhandler.pas
+  (3104) Compiling dotnetpipe.pas
+  (3104) Compiling guisafecriticalsection.pas
+  (1010) Writing Resource String Table file: guisafecriticalsection.rsj
+  (3104) Compiling dotnettypes.pas
+  (1010) Writing Resource String Table file: dotnettypes.rsj
+  (3104) Compiling networkInterfaceApi.pas
+  (3104) Compiling networkInterface.pas
+  (3104) Compiling virtualqueryexcache.pas
+  (3104) Compiling elfsymbols.pas
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\networkInterface.pas(2548,33) Warning: (4056) Conversion between ordinals and pointers is not portable
+  (3104) Compiling plugin.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling CEDebugger.pas
+  (3104) Compiling symbolhandler.pas
+  (3104) Compiling contexthandler.pas
+  (3104) Compiling parsers.pas
+  (3104) Compiling symbolhandler.pas
+  (3104) Compiling DriverList.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling frmMemoryAllocHandlerUnit.pas
+  (3104) Compiling autoassembler.pas
+  (3104) Compiling LuaClass.pas
+  (3104) Compiling LuaClassArray.pas
+  (3104) Compiling LuaObject.pas
+  (3104) Compiling LuaHandler.pas
+  (3104) Compiling LuaCaller.pas
+  (3104) Compiling ceguicomponents.pas
+  (3104) Compiling .\jvdesign\jvdesignsurface.pas
+  (3104) Compiling .\jvdesign\jvdesignutils.pas
+  (3104) Compiling .\jvdesign\jvdesignclip.pas
+  (3104) Compiling .\jvdesign\jvdesignimp.pas
+  (3104) Compiling .\jvdesign\jvresources.pas
+  (3104) Compiling .\jvdesign\jvconsts.pas
+  (1010) Writing Resource String Table file: jvresources.rsj
+  (3104) Compiling .\jvdesign\jvtypes.pas
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\.\jvdesign\jvdesignimp.pas(1157,46) Warning: (5036) Local variable "ScreenPoint" does not seem to be initialized
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\.\jvdesign\jvdesignimp.pas(1157,31) Warning: (5036) Local variable "ScreenPoint" does not seem to be initialized
+  (3104) Compiling custombase85.pas
+  (3104) Compiling celistviewitemeditor.pas
+  (3104) Compiling ceguicomponents.pas
+  (3104) Compiling .\betterControls\cecustombutton.pas
+  (3104) Compiling LuaHandler.pas
+  (3104) Compiling LuaCaller.pas
+  (3104) Compiling disassembler.pas
+  (3104) Compiling byteinterpreter.pas
+  (3104) Compiling CustomTypeHandler.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling CEDebugger.pas
+  (3104) Compiling addressparser.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling frmMemoryAllocHandlerUnit.pas
+  (3104) Compiling autoassembler.pas
+  (3104) Compiling OpenSave.pas
+  (3104) Compiling AdvancedOptionsUnit.pas
+  (3104) Compiling CEDebugger.pas
+  (3104) Compiling debughelper.pas
+  (3104) Compiling KernelDebuggerInterface.pas
+  (3104) Compiling DebuggerInterface.pas
+  (3104) Compiling debuggertypedefinitions.pas
+  (1010) Writing Resource String Table file: debuggertypedefinitions.rsj
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\DebuggerInterface.pas(86,1) Warning: (5093) function result variable of a managed type does not seem to be initialized
+  (1010) Writing Resource String Table file: KernelDebuggerInterface.rsj
+  (3104) Compiling WindowsDebugger.pas
+  (3104) Compiling autoassembler.pas
+  (3104) Compiling OpenSave.pas
+  (3104) Compiling AdvancedOptionsUnit.pas
+  (3104) Compiling disassembler.pas
+  (3104) Compiling byteinterpreter.pas
+  (1010) Writing Resource String Table file: byteinterpreter.rsj
+  (3104) Compiling disassemblerarm.pas
+  (3104) Compiling disassemblerthumb.pas
+  (3104) Compiling disassemblerarm.pas
+  (3104) Compiling disassemblerarm32.pas
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\disassemblerarm32.pas(1154,1) Warning: (5093) function result variable of a managed type does not seem to be initialized
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\disassemblerarm32.pas(1164,1) Warning: (5093) function result variable of a managed type does not seem to be initialized
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\disassemblerarm32.pas(1312,1) Warning: (5093) function result variable of a managed type does not seem to be initialized
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\disassemblerarm32.pas(1746,36) Warning: (4056) Conversion between ordinals and pointers is not portable
+  (3104) Compiling disassemblerarm64.pas
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\disassemblerarm64.pas(2805,1) Warning: (5093) function result variable of a managed type does not seem to be initialized
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\disassemblerarm64.pas(2815,1) Warning: (5093) function result variable of a managed type does not seem to be initialized
+  (3104) Compiling debughelper.pas
+  (3104) Compiling FoundCodeUnit.pas
+  (3104) Compiling formChangedAddresses.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling KernelDebugger.pas
+  (3104) Compiling hotkeyhandler.pas
+  (3104) Compiling genericHotkey.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling hotkeyhandler.pas
+  (3104) Compiling MemoryRecordUnit.pas
+  (3104) Compiling pointerparser.pas
+  (3104) Compiling memrecdatastructures.pas
+  (3104) Compiling autoassembler.pas
+  (3104) Compiling OpenSave.pas
+  (3104) Compiling AdvancedOptionsUnit.pas
+  (3104) Compiling DPIHelper.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling unrandomizer.pas
+  (3104) Compiling formsettingsunit.pas
+  (3104) Compiling frameHotkeyConfigUnit.pas
+  (3104) Compiling frmExcludeHideUnit.pas
+  (3104) Compiling formsettingsunit.pas
+  (3104) Compiling debughelper.pas
+  (3104) Compiling FoundCodeUnit.pas
+  (3104) Compiling debughelper.pas
+  (3104) Compiling debugeventhandler.pas
+  (3104) Compiling frmTracerUnit.pas
+  (3104) Compiling frmfinddialogunit.pas
+  (3104) Compiling frmStackViewUnit.pas
+  (3104) Compiling stacktrace2.pas
+  (3104) Compiling frmselectionlistunit.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling frmMemoryAllocHandlerUnit.pas
+  (3104) Compiling autoassembler.pas
+  (3104) Compiling OpenSave.pas
+  (3104) Compiling CommentsUnit.pas
+  (3104) Compiling LuaHandler.pas
+  (3104) Compiling LuaCaller.pas
+  (3104) Compiling LuaDisassembler.pas
+  (3104) Compiling LuaHandler.pas
+  (3104) Compiling LuaCaller.pas
+  (3104) Compiling addresslist.pas
+  (3104) Compiling MemoryRecordUnit.pas
+  (3104) Compiling memrecdatastructures.pas
+  (3104) Compiling autoassembler.pas
+  (3104) Compiling OpenSave.pas
+  (3104) Compiling tableconverter.pas
+  (3104) Compiling OpenSave.pas
+  (3104) Compiling Structuresfrm.pas
+  (1010) Writing Resource String Table file: Structuresfrm.rsj
+  (3104) Compiling StructuresFrm2.pas
+  (3104) Compiling frmstructuresconfigunit.pas
+  (3104) Compiling fontSaveLoadRegistry.pas
+  (3104) Compiling MainUnit2.pas
+  (3104) Compiling formsettingsunit.pas
+  (3104) Compiling debughelper.pas
+  (3104) Compiling debugeventhandler.pas
+  (3104) Compiling frmTracerUnit.pas
+  (3104) Compiling frmFloatingPointPanelUnit.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling frmMemoryAllocHandlerUnit.pas
+  (3104) Compiling autoassembler.pas
+  (3104) Compiling OpenSave.pas
+  (3104) Compiling StructuresFrm2.pas
+  (3104) Compiling Valuechange.pas
+  (1010) Writing Resource String Table file: Valuechange.rsj
+  (3104) Compiling frmstructuresnewstructureunit.pas
+  (3104) Compiling MainUnit2.pas
+  (3104) Compiling formsettingsunit.pas
+  (3104) Compiling debughelper.pas
+  (3104) Compiling debugeventhandler.pas
+  (3104) Compiling frmTracerUnit.pas
+  (3104) Compiling LuaByteTable.pas
+  (3104) Compiling LuaHandler.pas
+  (3104) Compiling LuaCaller.pas
+  (3104) Compiling addresslist.pas
+  (3104) Compiling MemoryRecordUnit.pas
+  (3104) Compiling memrecdatastructures.pas
+  (3104) Compiling autoassembler.pas
+  (3104) Compiling OpenSave.pas
+  (3104) Compiling StructuresFrm2.pas
+  (3104) Compiling scrollTreeView.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling unrandomizer.pas
+  (3104) Compiling formsettingsunit.pas
+  (3104) Compiling debughelper.pas
+  (3104) Compiling debugeventhandler.pas
+  (3104) Compiling DebuggerInterfaceAPIWrapper.pas
+  (3104) Compiling tracerignore.pas
+  (3104) Compiling breakpointtypedef.pas
+  (3104) Compiling debughelper.pas
+  (3104) Compiling VEHDebugger.pas
+  (3104) Compiling .\VEHDebug\VEHDebugSharedMem.pas
+  (3104) Compiling autoassembler.pas
+  (3104) Compiling OpenSave.pas
+  (3104) Compiling luafile.pas
+  (3104) Compiling disassemblerComments.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling unrandomizer.pas
+  (3104) Compiling formsettingsunit.pas
+  (3104) Compiling debughelper.pas
+  (3104) Compiling VEHDebugger.pas
+  (3104) Compiling autoassembler.pas
+  (3104) Compiling tcclib.pas
+  (3104) Compiling sourcecodehandler.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling unrandomizer.pas
+  (3104) Compiling formsettingsunit.pas
+  (3104) Compiling debughelper.pas
+  (3104) Compiling VEHDebugger.pas
+  (3104) Compiling autoassembler.pas
+  (3104) Compiling simpleaobscanner.pas
+  (3104) Compiling memscan.pas
+  (3104) Compiling windows7taskbar.pas
+  (3104) Compiling SaveFirstScan.pas
+  (3104) Compiling savedscanhandler.pas
+  (3104) Compiling memscan.pas
+  (3104) Compiling LuaHandler.pas
+  (3104) Compiling LuaCaller.pas
+  (3104) Compiling addresslist.pas
+  (3104) Compiling MemoryRecordUnit.pas
+  (3104) Compiling memrecdatastructures.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling unrandomizer.pas
+  (3104) Compiling formsettingsunit.pas
+  (3104) Compiling debughelper.pas
+  (3104) Compiling VEHDebugger.pas
+  (3104) Compiling MainUnit2.pas
+  (3104) Compiling formsettingsunit.pas
+  (3104) Compiling debughelper.pas
+  (3104) Compiling networkdebuggerinterface.pas
+  (3104) Compiling iptnative.pas
+  (3104) Compiling formsettingsunit.pas
+  (3104) Compiling formhotkeyunit.pas
+  (1010) Writing Resource String Table file: formhotkeyunit.rsj
+  (3104) Compiling aboutunit.pas
+  (3104) Compiling tlgUnit.pas
+  (1010) Writing Resource String Table file: tlgUnit.rsj
+  (3104) Compiling MainUnit2.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling frmMemoryAllocHandlerUnit.pas
+  (3104) Compiling circularBuffer.pas
+  (3104) Compiling frmautoinjectunit.pas
+  (3104) Compiling SynHighlighterAA.pas
+  (3104) Compiling LuaSyntax.pas
+  (1010) Writing Resource String Table file: LuaSyntax.rsj
+  (3104) Compiling MainUnit2.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling disassemblerviewunit.pas
+  (3104) Compiling disassemblerviewlinesunit.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling disassemblerviewunit.pas
+  (3104) Compiling DissectCodeThread.pas
+  (3104) Compiling memoryquery.pas
+  (1010) Writing Resource String Table file: DissectCodeThread.rsj
+  (1010) Writing Resource String Table file: disassemblerviewunit.rsj
+  (3104) Compiling hexviewunit.pas
+  (3104) Compiling changelist.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling unrandomizer.pas
+  (3104) Compiling MemFuncs.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling memscan.pas
+  (3104) Compiling LuaHandler.pas
+  (3104) Compiling LuaCaller.pas
+  (3104) Compiling addresslist.pas
+  (3104) Compiling addresslisteditor.pas
+  (3104) Compiling addresslist.pas
+  (3104) Compiling inputboxtopunit.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling frmMemviewPreferencesUnit.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling multilineinputqueryunit.pas
+  (3104) Compiling frmMemoryViewExUnit.pas
+  (3104) Compiling memdisplay.pas
+  (1010) Writing Resource String Table file: memdisplay.rsj
+  (3104) Compiling foundlisthelper.pas
+  (3104) Compiling memscan.pas
+  (3104) Compiling LuaHandler.pas
+  (3104) Compiling LuaCaller.pas
+  (3104) Compiling addresslist.pas
+  (3104) Compiling frmmemreccomboboxunit.pas
+  (3104) Compiling formAddressChangeUnit.pas
+  (3104) Compiling LuaHandler.pas
+  (3104) Compiling LuaCaller.pas
+  (3104) Compiling diagramblock.pas
+  (3104) Compiling diagramtypes.pas
+  (3104) Compiling textrender.pas
+  (3104) Compiling LuaHandler.pas
+  (3104) Compiling xmplayer_server.pas
+  (3104) Compiling xmplayer_defines.pas
+  (3104) Compiling mikmod.pas
+  (1010) Writing Resource String Table file: mikmod.rsj
+  (3104) Compiling ExtraTrainerComponents.pas
+  (1010) Writing Resource String Table file: ExtraTrainerComponents.rsj
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling memscan.pas
+  (3104) Compiling fileaccess.pas
+  (1010) Writing Resource String Table file: fileaccess.rsj
+  (3104) Compiling groupscancommandparser.pas
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\groupscancommandparser.pas(312,48) Warning: (5089) Local variable "values" of a managed type does not seem to be initialized
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\groupscancommandparser.pas(230,33) Warning: (5036) Local variable "k" does not seem to be initialized
+  (1010) Writing Resource String Table file: groupscancommandparser.rsj
+  (3104) Compiling foundlisthelper.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling MenuItemExtra.pas
+  (3104) Compiling speedhack2.pas
+  (3104) Compiling frmautoinjectunit.pas
+  (3104) Compiling tablist.pas
+  (3104) Compiling frmAAEditPrefsUnit.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling AccessCheck.pas
+  (1010) Writing Resource String Table file: AccessCheck.rsj
+  (3104) Compiling PEInfounit.pas
+  (1010) Writing Resource String Table file: PEInfounit.rsj
+  (3104) Compiling simpleaobscanner.pas
+  (3104) Compiling pointervaluelist.pas
+  (3104) Compiling bigmemallochandler.pas
+  (1010) Writing Resource String Table file: bigmemallochandler.rsj
+  (1010) Writing Resource String Table file: pointervaluelist.rsj
+  (3104) Compiling ManualModuleLoader.pas
+  (1010) Writing Resource String Table file: ManualModuleLoader.rsj
+  (3104) Compiling frmRegistersunit.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling frmMemoryViewExUnit.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling binutils.pas
+  (3104) Compiling ceregistry.pas
+  (3104) Compiling MainUnit2.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling frmcr3switcherunit.pas
+  (1010) Writing Resource String Table file: frmcr3switcherunit.rsj
+  (3104) Compiling ScrollBoxEx.pas
+  (3104) Compiling iptlogdisplay.pas
+  (3104) Compiling libipt.pas
+  (3104) Compiling pagemap.pas
+  (3104) Compiling MemoryBrowserFormUnit.pas
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling addresslisthandlerunit.pas
+  (1010) Writing Resource String Table file: addresslisthandlerunit.rsj
+  (3104) Compiling formdesignerunit.pas
+  (3104) Compiling frmanchoreditor.pas
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\frmanchoreditor.pas(280,37) Warning: (5036) Local variable "ak" does not seem to be initialized
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\frmanchoreditor.pas(280,52) Warning: (5036) Local variable "sideref" does not seem to be initialized
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\frmanchoreditor.pas(345,39) Warning: (5036) Local variable "ak" does not seem to be initialized
+  (3104) Compiling MainUnit.pas
+  (3104) Compiling cesupport.pas
+  D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\cesupport.pas(194,115) Error: (5000) Identifier not found "ExtractFileNameWithoutExt"
+  cesupport.pas(275) Fatal: (10026) There were 1 errors compiling module, stopping
+  Fatal: (1018) Compilation aborted
+  Error: e:\lazarus\fpc\3.2.2\bin\x86_64-win64\ppcx64.exe returned an error exitcode
+  Error: (lazarus) Compile Project, Mode: Release 64-Bit, Target: D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\bin\sysdiag64.exe: stopped with exit code 1
+  Error: (lazbuild) failed compiling of project D:\Project\tools\ce-undetectable\cheat-engine\Cheat Engine\cheatengine.lpi
+PS D:\Project\tools\ce-undetectable>

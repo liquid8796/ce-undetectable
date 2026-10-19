@@ -46,6 +46,8 @@ else {
     $searchPaths = @(
         "C:\lazarus",
         "C:\Lazarus\lazarus",
+        "E:\lazarus",
+        "D:\lazarus",
         "${env:ProgramFiles}\Lazarus",
         "${env:ProgramFiles(x86)}\Lazarus"
     )
@@ -87,19 +89,64 @@ foreach ($unit in $newUnits) {
     $src = Join-Path $SrcDir $unit
     $dst = Join-Path $CeProjectDir $unit
     if (Test-Path $src) {
-        Copy-Item $src $dst -Force
+        if ($Clean -or -not (Test-Path $dst) -or ((Get-FileHash $src).Hash -ne (Get-FileHash $dst).Hash)) {
+            Copy-Item $src $dst -Force
+        }
         Write-Host "  Copied: $unit"
     }
 }
 
 # Copy patched files
-$patchedFiles = @("cheatengine.lpi", "cheatengine.lpr", "NewKernelHandler.pas")
+$patchedFiles = @("cheatengine.lpi", "cheatengine.lpr", "NewKernelHandler.pas", "Images_alt.res")
 foreach ($file in $patchedFiles) {
     $src = Join-Path $SrcDir $file
     $dst = Join-Path $CeProjectDir $file
     if (Test-Path $src) {
-        Copy-Item $src $dst -Force
+        if ($Clean -or ($file -eq "cheatengine.lpi") -or -not (Test-Path $dst) -or ((Get-FileHash $src).Hash -ne (Get-FileHash $dst).Hash)) {
+            Copy-Item $src $dst -Force
+        }
         Write-Host "  Patched: $file"
+    }
+}
+
+# Lazarus 3.x compatibility patches (LazFileUtils & VirtualTrees)
+$ceSupportFile = Join-Path $CeProjectDir "cesupport.pas"
+if (Test-Path $ceSupportFile) {
+    $content = Get-Content $ceSupportFile -Raw
+    if ($content -notmatch "LazFileUtils") {
+        $content = $content -replace "FileUtil, Dialogs", "FileUtil, LazFileUtils, Dialogs"
+        $content | Set-Content $ceSupportFile -NoNewline
+        Write-Host "  Patched: cesupport.pas (Lazarus 3.x)"
+    }
+}
+
+$luaHandlerFile = Join-Path $CeProjectDir "LuaHandler.pas"
+if (Test-Path $luaHandlerFile) {
+    $content = Get-Content $luaHandlerFile -Raw
+    if ($content -match '\{\$ifdef laztrunk\}\s*LazFileUtils,\s*\{\$endif\}') {
+        $content = $content -replace '\{\$ifdef laztrunk\}\s*LazFileUtils,\s*\{\$endif\}', 'LazFileUtils,'
+        $content | Set-Content $luaHandlerFile -NoNewline
+        Write-Host "  Patched: LuaHandler.pas (Lazarus 3.x)"
+    }
+}
+
+$saveSnapFile = Join-Path $CeProjectDir "frmSaveSnapshotsUnit.pas"
+if (Test-Path $saveSnapFile) {
+    $content = Get-Content $saveSnapFile -Raw
+    if ($content -match '\{\$ifdef laztrunk\}\s*,\s*LazFileUtils\s*\{\$endif\}') {
+        $content = $content -replace '\{\$ifdef laztrunk\}\s*,\s*LazFileUtils\s*\{\$endif\}', ', LazFileUtils'
+        $content | Set-Content $saveSnapFile -NoNewline
+        Write-Host "  Patched: frmSaveSnapshotsUnit.pas (Lazarus 3.x)"
+    }
+}
+
+$luaVstFile = Join-Path $CeProjectDir "luavirtualstringtree.pas"
+if (Test-Path $luaVstFile) {
+    $content = Get-Content $luaVstFile -Raw
+    if ($content -match '\{\$ifdef laztrunk\}\s*luaclass_register\(TCustomVirtualStringTree,\s*virtualstringtree_addMetaData\);\s*\{\$else\}\s*luaclass_register\(TVirtualStringTree,\s*virtualstringtree_addMetaData\);\s*\{\$endif\}') {
+        $content = $content -replace '\{\$ifdef laztrunk\}\s*(luaclass_register\(TCustomVirtualStringTree,\s*virtualstringtree_addMetaData\);)\s*\{\$else\}\s*luaclass_register\(TVirtualStringTree,\s*virtualstringtree_addMetaData\);\s*\{\$endif\}', '$1'
+        $content | Set-Content $luaVstFile -NoNewline
+        Write-Host "  Patched: luavirtualstringtree.pas (Lazarus 3.x)"
     }
 }
 
@@ -126,6 +173,7 @@ if (-not $SkipBuild) {
     Write-Host "  This may take a while (first build is slow)..." -ForegroundColor DarkGray
 
     $buildArgs = @(
+        "-B",
         "--build-mode=Release 64-Bit",
         "--ws=win32",
         $lpiFile
@@ -158,7 +206,8 @@ $exeToProcess = Get-ChildItem $binDir -Filter "*.exe" |
     Select-Object -First 1 -ExpandProperty FullName
 
 if ($exeToProcess -and (Test-Path $exeToProcess)) {
-    & $pePatcherDst -TargetExe $exeToProcess
+    Unblock-File -Path $pePatcherDst -ErrorAction SilentlyContinue
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $pePatcherDst -TargetExe $exeToProcess
 }
 else {
     Write-Host "[WARN] No built .exe found to patch" -ForegroundColor Yellow

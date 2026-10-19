@@ -149,7 +149,8 @@ if (-not $exeToProcess) {
 if ($exeToProcess -and (Test-Path $exeToProcess)) {
     $patcherScript = Join-Path $ProjectDir "PEPatcher.ps1"
     if (Test-Path $patcherScript) {
-        & $patcherScript -TargetExe $exeToProcess
+        Unblock-File -Path $patcherScript -ErrorAction SilentlyContinue
+        & powershell -NoProfile -ExecutionPolicy Bypass -File $patcherScript -TargetExe $exeToProcess
     }
     else {
         Write-Host "[WARN] PEPatcher.ps1 not found, skipping PE mutation" -ForegroundColor Yellow

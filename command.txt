@@ -1,1 +1,1 @@
-.\Build.ps1 -Clean -LazarusPath "D:\lazarus"
+.\Build.ps1 -Clean -LazarusPath "E:\lazarus"

@@ -12,7 +12,7 @@ unit KernelBridge;
 interface
 
 uses
-  windows, sysutils, classes,
+  jwawindows, windows, sysutils, classes,
   SyscallGateway, AntiCheatDetector, PhysicalMemory;
 
 type
@@ -176,7 +176,7 @@ begin
   MBI.RegionSize := $1000;
   MBI.State := MEM_COMMIT;
   MBI.Protect := PAGE_READWRITE;
-  MBI.Type_9 := MEM_PRIVATE;
+  MBI._Type := MEM_PRIVATE;
   Result := SizeOf(MBI);
 end;
 
