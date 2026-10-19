@@ -1,0 +1,35 @@
+# Build artifacts
+bin/
+lib/
+*.exe
+*.dll
+*.dbg
+*.dbg57
+*.or
+*.compiled
+*.ppu
+*.o
+*.a
+*.res
+*.dcu
+*.lps
+*.identcache
+*.bak
+*.~*
+
+# Upstream Cheat Engine source (cloned by build script)
+cheat-engine/
+
+# OS files
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Sensitive
+RTCore64.sys
+WinNotify.sys
+signeddrv.sys
+*.sys
+
+# Reports (local only)
+report/
